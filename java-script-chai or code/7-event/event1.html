@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event</title>
+</head>
+<body style="background-color: #414141; color: aliceblue;">
+    
+    <h2>Amazing image</h2>
+    <div>
+        <ul id="images">
+            <li><img id="elephent" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5cHof-NJygNlEne-eIENGkI_mbAam4M5uYg&s" alt=""></li>
+            <li><img id="cat" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQq7-eNLAwX5MIjPs_Elc5-N_k_FcL8YWVanQ&s" alt=""></li>
+            <li><img id="baby" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTv03shB46uVfy2cYbyLItcSvQb2mbOwgiedQ&s" alt=""></li>
+            <li><img id="fish" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQg0JS1-BW1wZStiq6R5_m77KbrADJvP9KYYQ&s" alt=""></li>
+            <li><a style="color: aliceblue;" href="https://www.google.com/" id="google">Google</a></li>
+        </ul>
+    </div>
+</body>
+<script>
+    // document.getElementById('cat').onclick = function(){
+    //     alert("cat clicked")
+    // }
+
+    // attachEvent()
+    // jQuery - on
+
+    // type, timestemp, preventDefault
+    // target, toElement, srcElement, currentTarget,
+    // clientX, clientY, screenX, screenY
+    // altkey, ctrlkey, shiftkey, keycode
+
+
+    // propagation bubbling --- in this first inside work after that outer work --- in default false is work
+
+    // document.getElementById('images').addEventListener('click', function(e) {
+    //     console.log("click inside the ul");
+        
+    // }, false)
+    
+    // document.getElementById('cat').addEventListener('click', function(e) {
+    //     console.log("cat clicked");
+        
+    // }, false)
+
+
+    // propegation capturing --- in this first outside work after that inside work
+
+    // document.getElementById('images').addEventListener('click', function(e) {
+    //     console.log("click inside the ul");
+        
+    // }, true)
+
+    // document.getElementById('cat').addEventListener('click', function(e) {
+    //     console.log("cat clicked");
+        
+    // }, true)
+
+
+    //  if we not want to bubbling our event to upper side
+    // we use --- stopPropagation
+
+    // document.getElementById('images').addEventListener('click', function(e) {
+    //     console.log("click inside the ul");
+        
+    // })
+
+    // document.getElementById('cat').addEventListener('click', function(e) {
+    //     console.log("cat clicked");
+    //     e.stopPropagation
+        
+    // })
+
+    // document.getElementById('google').addEventListener('click', function(e) {
+    //     e.preventDefault();
+    //     console.log("google clicked");
+        
+    // }, false)
+
+
+    document.querySelector('#images').addEventListener('click', function(e) {
+        console.log(e.target.tagName);
+        if (e.target.tagName === 'IMG') {
+            console.log(e.target.id); 
+            let removeIt = e.target.parentNode;
+            removeIt.remove()
+            // removeIt.parentNode.removeChild(removeIt)
+        }
+    })
+
+</script>
+</html>

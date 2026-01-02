@@ -1,0 +1,34 @@
+<!-- 
+Online HTML, CSS and JavaScript editor to run code online.
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <title>Browser</title>
+</head>
+
+<body>
+  <table>
+  </table>
+  <script>
+    let table = document.querySelector("table");
+
+function able(row, col) {
+
+    for (let i = 1; i <= row; i++) {
+        table.innerHTML+= "<tr>"
+          for (let j = 1; j <= col; j++) {
+            table.innerHTML+= "<td> </td>"
+          }
+        table.innerHTML+= "</tr>"
+    }
+}
+able(3, 4)
+  </script>
+</body>
+
+</html>

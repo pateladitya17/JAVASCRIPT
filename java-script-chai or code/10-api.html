@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="card">
+      <div id="img">
+        <img src="" alt="" />
+      </div>
+      <h1 id="details"></h1>
+      <div id="btn">
+        <button id="fetchbtn">Fetch</button>
+        <button id="showbtn" style="display: none">Show</button>
+      </div>
+    </div>
+  </body>
+  <script>
+    const requestUrl = "https://api.github.com/users/hiteshchoudhary";
+    const xhr = new XMLHttpRequest();
+    let data;
+
+    const fetchData = function () {
+      xhr.open("GET", requestUrl);
+      xhr.onreadystatechange = function () {
+        console.log(xhr.readyState);
+        if (xhr.readyState === 4) {
+          data = JSON.parse(this.responseText);
+          console.log(typeof data);
+          console.log(data.followers);
+        }
+      };
+      xhr.send();
+      document.querySelector('#showbtn').style = "display: block";
+    }
+
+    const showData = function () {
+        document.querySelector("img").src = data.avatar_url;
+        document.querySelector("#details").innerHTML = data.followers;
+    }
+
+    
+
+    document.querySelector("#fetchbtn").addEventListener("click", fetchData);
+    document.querySelector("#showbtn").addEventListener("click", showData);
+
+
+
+    // https://avatars.githubusercontent.com/u/11613311?v=4
+  </script>
+</html>
